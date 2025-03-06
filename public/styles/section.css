@@ -1,0 +1,36 @@
+.casal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    width: 130%;
+    margin-top: 50px;
+}
+
+.container-casal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    gap: 50px;
+}
+
+.imagem-casal {
+    flex: 3;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.imgCasal {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.texto-casal {
+    text-align: justify;
+    flex: 3.5;
+    padding: 20px;
+    font-size: clamp(1rem, 1.1vw, 3rem);
+}

@@ -1,0 +1,15 @@
+@import "./styles/nav.css";
+@import "./styles/listaPresente.css";
+@import "./styles/global.css";
+@import "./styles/adm.css";
+@import "./styles/cabecalho.css";
+@import "./styles/carrinho.css";
+@import "./styles/footer.css";
+@import "./styles/modal.css";
+@import "./styles/svg.css";
+@import "./styles/section.css";
+@import "./styles/local.css";
+@import "./styles/fotos.css";
+
+
+@import "./styles/responsivo.css";

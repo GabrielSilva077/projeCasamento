@@ -1,0 +1,218 @@
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+#presentes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#presentes-lista {
+  list-style-type: none;
+  padding: 0;
+}
+
+#presentes-lista li {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#presentes-lista li img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #cc0000;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Estilo do Modal */
+#modal-edicao {
+  display: none;
+  /* Inicialmente o modal estará escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fundo semitransparente */
+  z-index: 1000;
+  /* Garante que o modal fique acima de outros elementos */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do conteúdo do modal */
+#form-edicao {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos botões */
+button {
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+/* Estilo do Modal */
+#modal-cadastro {
+  display: none;
+  /* Inicialmente o modal estará escondido */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fundo semitransparente */
+  z-index: 1000;
+  /* Garante que o modal fique acima de outros elementos */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo do conteúdo do modal */
+#form-cadastro {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo dos botões */
+button {
+  padding: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+}
+
+button[type="button"] {
+  background-color: #f44336;
+  color: white;
+  border: none;
+}
+
+#modal-edicao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+\#form-edicao {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 500px;
+}
+
+
+#form-cadastro{
+  position: fixed;
+  top: 0;
+  background-color: rgb(190, 185, 185);
+  align-items: center;
+}
+
+
+.CadastrarNovoProduto{
+  position: fixed;
+  top: 0;
+}
+
+.adm_css{
+  display: flex; 
+  gap: 100px; 
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+
+
+
+
+/* 
+.admin-page {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+#presentes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.produto-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  width: 200px;
+  text-align: center;
+}
+
+.produto-card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.produto-card.esgotado {
+  background-color: #ffe0e0;
+  opacity: 0.7;
+} */

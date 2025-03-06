@@ -1,0 +1,114 @@
+.info-map {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    text-align: center;
+}
+
+.local h2 {
+    color: black;
+    font-size: clamp(1rem, 3vw, 4rem);
+}
+
+.local p {
+    font-size: clamp(1rem, 2vw, 4rem);
+}
+
+
+.recados {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 40px auto;
+    color: #2C3E50;
+    font-weight: bold;
+    margin-top: 300px;
+}
+
+
+
+.algunsRecados {
+    font-size: clamp(1rem, 1.3vw, 3rem);
+    display: block;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.tez {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.tez p{
+}
+
+
+.recadosTema {
+    font-size: clamp(2rem, 2vw, 3rem);
+    color: #2C3E50;
+}
+
+
+.divAgradecimento {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.divAgradecimento>div:nth-child(1) {
+    text-align: left;
+    align-self: flex-start;
+}
+
+.divAgradecimento>div:nth-child(2) {
+    text-align: right;
+    align-self: flex-end;
+    width: 50%;
+}
+
+.divAgradecimento>div:nth-child(3) {
+    text-align: left;
+    align-self: flex-start;
+}
+
+.textAgradecimento {
+    width: 50%;
+    margin-bottom: 3%;
+    margin-left: 150px;
+    margin-right: 150px;
+    /* border: 1px solid rgba(255, 0, 0, 0.205); */
+    padding: 40px;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.9); */
+}
+
+.textAgradecimentoLink {
+    color: blue;
+}
+
+.roupas{
+    display: block;
+    text-align: center;
+}
+
+.roupas h2{
+    color: black;
+}
+
+.roupas p{
+    text-align: justify;
+}
+
+.roupa {
+    width: 25%;
+    background-color: transparent;
+}

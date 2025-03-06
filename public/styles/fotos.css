@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
+
+.pai-imgs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -90px;
+    margin-left: -100px;
+    font-family: "Pinyon Script", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fotos,
+.fotos2,
+.fotos3 {
+    display: flex;
+    position: absolute;
+}
+
+.fotos {
+    margin-top: -70%;
+}
+
+.fotos2 {
+    margin-top: 50%;
+}
+
+.fotos3 {
+    margin-top: 150%;
+}
+
+/* Estilização das imagens */
+[class^="imgfotos"] {
+    width: 180px;
+    height: 260px;
+    padding: 10px 5px 50% 5px;
+    background-color: white;
+    border: 0.1px solid rgb(192, 192, 192);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* Estilização dos vídeos */
+[class^="videofotos"] {
+    width: 180px;
+    height: 260px;
+    padding: 10px 5px 50% 5px;
+    background-color: white;
+    border: 0.1px solid rgb(192, 192, 192);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+    object-fit: cover; /* Para ajustar o vídeo dentro do espaço */
+}
+
+/* Estilização das divs posicionadas */
+[class^="divP"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+[class^="divP"] span {
+    position: absolute;
+    margin-top: 100%;
+    font-size: clamp(1rem, 1.2vw, 3rem);
+}
+
+/* Posicionamento e rotação das divs */
+.divP1 {
+    transform: rotate(-15deg);
+    margin-left: -350px;
+    margin-top: 50px;
+}
+
+.divP2 {
+    transform: rotate(15deg);
+    margin-top: 120px;
+    z-index: 1;
+    margin-left: -250px;
+}
+
+.divP3 {
+    transform: rotate(5deg);
+    margin-left: -150px;
+    z-index: 1;
+}
+
+.divP4 {
+    transform: rotate(-15deg);
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.divP5 {
+    transform: rotate(15deg);
+    margin-left: -520px;
+}
+
+.divP6 {
+    transform: rotate(-15deg);
+    margin-left: -700px;
+}
+
+
+
+
+
+.divP7 {
+    transform: rotate(-15deg);
+    margin-left: -350px;
+}
+
+.divP8 {
+    transform: rotate(35deg);
+    margin-left: -150px;
+    margin-top: -100px;
+}
+
+.divP9 {
+    transform: rotate(-15deg);
+    margin-left: -20px;
+    margin-top: -100px;
+}
+
+.divP10 {
+    transform: rotate(15deg);
+    margin-left: 90px;
+    font-size: 30px;
+    margin-top: -100px;
+}
+
+.divP11 {
+    transform: rotate(-15deg);
+    margin-left: -520px;
+    margin-top: -100px;
+}
+
+.divP12 {
+    transform: rotate(15deg);
+    margin-left: -700px;
+    margin-top: -100px;
+}
+
+
+
+
+
+
+
+.divP13 {
+    transform: rotate(-15deg);
+    margin-left: -300px;
+    margin-top: -100px;
+    z-index: 1;
+}
+
+.divP14 {
+    transform: rotate(35deg);
+    margin-left: -150px;
+    margin-top: -100px;
+}
+
+.divP15 {
+    transform: rotate(-15deg);
+    margin-left: -20px;
+    margin-top: -100px;
+}
+
+.divP16 {
+    transform: rotate(15deg);
+    margin-left: 90px;
+    font-size: 30px;
+    margin-top: -100px;
+}
+
+.divP17 {
+    transform: rotate(15deg);
+    margin-left: -520px;
+    margin-top: -100px;
+}
+
+.divP18 {
+    transform: rotate(-15deg);
+    margin-left: -700px;
+    margin-top: -100px;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+    .img1,
+    .img2,
+    .img3,
+    .img4,
+    .img5,
+    .img6,
+    .img7,
+    .img8,
+    .img9,
+    .img10,
+    .img11,
+    .img12,
+    .img13,
+    .img14,
+    .img15,
+    .img16,
+    .img17,
+    .videofotos1 {
+        width: 150px;
+        height: 220px;
+    }
+
+    .divP1,
+    .divP2,
+    .divP3,
+    .divP4,
+    .divP5,
+    .divP6,
+    .divP7,
+    .divP8,
+    .divP9,
+    .divP10,
+    .divP11,
+    .divP12,
+    .divP13,
+    .divP14,
+    .divP15,
+    .divP16,
+    .divP17,
+    .divP118 {
+        width: 150px;
+        height: 220px;
+    }
+
+    .divP1 {
+        margin-left: -150px;
+    }
+
+    .divP2 {
+        margin-left: -30px;
+    }
+
+    .divP3 {
+        margin-left: 30px;
+    }
+
+    .divP4 {
+        margin-left: 150px;
+    }
+
+    .divP5 {
+        margin-left: -250px;
+    }
+
+    .divP6 {
+        margin-left: -450px;
+    }
+
+    .divP7 {
+        margin-left: -150px;
+    }
+
+    .divP8 {
+        margin-left: 0;
+    }
+
+    .divP9 {
+        margin-left: 100px;
+    }
+
+    .divP10 {
+        margin-left: 200px;
+        font-size: 20px;
+    }
+
+    .divP11 {
+        margin-left: -250px;
+    }
+
+    .divP12 {
+        margin-left: -450px;
+    }
+
+    .fotos2 {
+        margin-top: 50%;
+    }
+
+    .pai-imgs {
+        margin-top: 150px;
+    }
+}

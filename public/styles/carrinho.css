@@ -1,0 +1,191 @@
+.main-carrinho {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 200px;
+    position: relative;
+}
+
+#itens-carrinho{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#quantidade {
+    background-color: red;
+}
+
+#btn-finalizar {
+    position: absolute;
+    margin-left: 42%;
+    top: 0;
+}
+
+/* Estilo para o botão ativo */
+.btn-final.active {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+    transition: all 0.3s ease;
+}
+
+/* Fundo borrado quando o formulário é ativo */
+body.form-active {
+    overflow: hidden;
+    /* Evita rolagem enquanto o formulário está aberto */
+}
+
+body.form-active::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Fundo escuro com transparência */
+    backdrop-filter: blur(8px);
+    /* Efeito de desfoque */
+    z-index: 1;
+    /* Coloca o fundo borrado acima do conteúdo, mas abaixo do formulário */
+}
+
+
+
+
+#form-container::before {
+    content: "";
+    /* Necessário para o pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    /* Herda a imagem de fundo do elemento pai */
+    background-repeat: inherit;
+    background-size: inherit;
+    background-position: center;
+    /* Centraliza a imagem no pseudo-elemento também */
+    filter: blur(2px);
+    /* Aplica o desfoque */
+    z-index: -1;
+    /* Garante que o pseudo-elemento fique abaixo do conteúdo */
+}
+
+/* Estilo do formulário */
+#form-container {
+    display: none;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /* Coloca o formulário acima do fundo borrado */
+    width: 30%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    top: 0;
+    height: 350px;
+    /* background-image: url("../../img/teste-img.jpg"); */
+    background-color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 5%;
+}
+
+/* Exibe o formulário quando ativo */
+#form-container.active {
+    display: block;
+    margin-left: 15%;
+}
+
+input[type="number"] {
+    width: 60px;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+/* Estilo ao focar no campo de input */
+input[type="number"]:focus {
+    border-color: #0056b3;
+    background-color: #fff;
+    outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"]:disabled {
+    background-color: #e9ecef;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+.dados_email {
+    width: 90%;
+    border-radius: 5px;
+    font-size: clamp(1rem, 1.1vw, 4rem);
+}
+
+form input {
+    border: 0.5px solid black;
+}
+
+.form-class {
+    margin-top: 20px;
+}
+
+
+.item-carrinho {
+    display: block;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: rgb(235, 233, 233);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    width: 500px;
+}
+
+.imagem-carrinho {
+    width: 50%;
+}
+
+.detalle-item {
+    flex: 1;
+}
+
+input[type="number"] {
+    width: 60px;
+}
+
+.btn-excluir {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.btn-excluir:hover {
+    background-color: darkred;
+}
+
+.titleCarrinho{
+    margin-bottom: 5%;
+    font-size: clamp(2.5rem, 3vw, 4rem);
+}

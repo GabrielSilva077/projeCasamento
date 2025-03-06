@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Presentes</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <img src="../img/aliancas-de-casamento.png" alt="" class="img-alianca">
+                    <div class="logo-name">Victor e Nayara</div>
+                </div>
+                <i class='bx bx-menu' id="btn">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </i>
+            </div>
+
+            <nav>
+                <ul class="nav-list">
+
+                    <li><a href="index.html">
+                            <i class='bx bxs-home'></i>
+                            <span class="link-name">Home</span>
+                        </a>
+                    </li>
+                    <li><a href="listaDePresentes.html">
+                            <i class='bx bxs-gift'></i>
+                            <span class="link-name">Lista de presentes</span>
+                        </a>
+                    </li>
+                    <li><a href="index.html#info-mapTitle">
+                            <i class='bx bxs-map'></i>
+                            <span class="link-name">Local</span>
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <i class='bx bxs-user-check'></i>
+                            <span class="link-name">Confirmar presença</span>
+                        </a>
+                    </li>
+                    <li><a href="index.html#recados">
+                            <i class='bx bxs-chat'></i>
+                            <span class="link-name">Reacados</span>
+                        </a>
+                    </li>
+                    <li><a href="formulario.html">
+                            <i class='bx bxs-cart'></i>
+                            <span class="link-name">Carrinho</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav class="nav-navbar">
+            <ul class="inv_nav">
+                <!-- <li><a href="#">O casal</a></li> -->
+                <li><a href="index.html">
+                        <i class='bx bxs-home'></i>
+                        Home</a>
+                </li>
+                <li><a href="listaDePresentes.html">
+                        <i class='bx bxs-gift'></i>
+                        Lista de presentes</a>
+                </li>
+                <li><a href="index.html#info-mapTitle" data-scroll-href="#local-scroll">
+                        <i class='bx bxs-map'></i>
+                        Local</a>
+                </li>
+                <li><a href="#">
+                        <i class='bx bxs-user-check'></i>
+                        Confirmar presença</a>
+                </li>
+                <li><a href="index.html#recados">
+                        <i class='bx bxs-chat'></i>
+                        Reacados</a>
+                </li>
+                <li><a href="formulario.html">
+                        <i class='bx bxs-cart'></i>
+                        carrinho</a>
+                </li>
+            </ul>
+        </nav>
+
+
+    </header>
+
+
+    <!-- <h1>Encontre o presente perfeito para o Chá de Cozinha!</h1>
+    <p>Selecione da nossa lista e torne o momento ainda mais especial</p>
+   -->
+
+    <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
+
+        <main class="main_presentes">
+            <div data-aos="fade-up" data-aos-duration="1000">
+
+                <section class="listaPresentes">
+
+                    <h1 class="title" id="lista">Lista de Presentes</h1>
+
+                    <div class="filtro-container">
+                        <select id="filtro-categoria">
+                            <option value="">Todas as Categorias</option>
+                            <option value="Utensílios de Cozinha">Utensílios de Cozinha</option>
+                            <option value="Eletrodomésticos">Eletrodomésticos</option>
+                            <option value="Louças e Talheres">Louças e Talheres</option>
+                            <option value="Itens de Armazenamento">Itens de Armazenamento</option>
+                            <option value="Decoração para Cozinha">Decoração para Cozinha</option>
+                            <option value="Produtos para Preparação de Alimentos">Produtos para Preparação de Alimentos</option>
+                            <option value="Itens para Bebidas">Itens para Bebidas</option>
+                        </select>
+                        <button id="btn-filtrar">Filtrar</button>
+                    </div>
+                    
+
+                    <div id="presentes-lista"></div>
+
+                </section>
+
+            </div>
+        </main>
+
+        <footer class="footer_pai">
+            <div class="footer-container">
+                <div class="footer-info">
+                    <p><strong>Contato:</strong> contato@cha-cozinha.com</p>
+                    <p><strong>Telefone:</strong> <i class='bx bxs-phone'></i> (11) 9999-9999</p>
+                    <p><strong>Redes sociais:</strong>
+                        <a href="#" target="_blank"> <i class='bx bxl-instagram-alt'></i>Instagram</a> |
+                    </p>
+                </div>
+                <!-- <div class="footer-links">
+                <a href="#">Sobre nós</a>
+                <a href="#">Política de privacidade</a>
+                <a href="#">Termos e condições</a>
+              </div> -->
+
+                <div class="footer-copyright">
+                    <p>© 2025 Chá de Cozinha. Todos os direitos reservados.</p>
+                    <p>Criador do site: felix.gabriel2027@gmail.com</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <script src="filtro.js"></script>
+
+</body>
+
+</html>

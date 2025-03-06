@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+</head>
+
+<body>
+
+
+  <header>
+    <div class="sidebar">
+      <div class="logo-content">
+        <div class="logo">
+          <img src="../img/aliancas-de-casamento.png" alt="" class="img-alianca">
+          <div class="logo-name">Victor e Nayara</div>
+        </div>
+        <i class='bx bx-menu' id="btn">
+
+          <span></span>
+          <span></span>
+          <span></span>
+        </i>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+
+          <li><a href="index.html">
+              <i class='bx bxs-home'></i>
+              <span class="link-name">Home</span>
+            </a>
+          </li>
+          <li><a href="listaDePresentes.html">
+              <i class='bx bxs-gift'></i>
+              <span class="link-name">Lista de presentes</span>
+            </a>
+          </li>
+          <li><a href="#info-mapTitle">
+              <i class='bx bxs-map'></i>
+              <span class="link-name">Local</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i class='bx bxs-user-check'></i>
+              <span class="link-name">Confirmar presença</span>
+            </a>
+          </li>
+          <li><a href="#recados">
+              <i class='bx bxs-chat'></i>
+              <span class="link-name">Reacados</span>
+            </a>
+          </li>
+          <li><a href="formulario.html">
+              <i class='bx bxs-cart'></i>
+              <span class="link-name">Carrinho</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="nav-navbar">
+      <ul class="inv_nav">
+        <!-- <li><a href="#">O casal</a></li> -->
+        <li><a href="index.html">
+            <i class='bx bxs-home'></i>
+            Home</a>
+        </li>
+        <li><a href="listaDePresentes.html">
+            <i class='bx bxs-gift'></i>
+            Lista de presentes</a>
+        </li>
+        <li><a href="#info-mapTitle" data-scroll-href="#local-scroll">
+            <i class='bx bxs-map'></i>
+            Local</a>
+        </li>
+        <li><a href="#">
+            <i class='bx bxs-user-check'></i>
+            Confirmar presença</a>
+        </li>
+        <li><a href="#recados">
+            <i class='bx bxs-chat'></i>
+            Reacados</a>
+        </li>
+        <li><a href="formulario.html">
+            <i class='bx bxs-cart'></i>
+            carrinho</a>
+        </li>
+      </ul>
+    </nav>
+
+
+  </header>
+
+  <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="100">
+
+    <main class="main_presentes">
+
+      <section class="title_img">
+
+        <div class="title_presentes">
+
+          <div class="txt-animado">
+            <p class="nome">Bem-vindo ao nosso chá de cozinha</p>
+            <span id="texto"></span>
+          </div>
+
+          <a href="#listatitle">
+            <i class='bx bx-chevron-down' id="icone-arrow"></i>
+          </a>
+        </div>
+
+      </section>
+
+      <div data-aos="fade-up" data-aos-duration="2000">
+
+        <div class="svg-geral">
+          <h1 class="text_nome">Nayara e Victor</h1>
+
+          <div class="teste">
+            <svg xmlns="http://www.w3.org/2000/svg" id="svg5" version="1.1" viewBox="0 0 502.98 108.61">
+              <path id="heart"
+                d="M213.35 29.43c19.41-15.19 33.68 10.86 37.73 18.82-.28-13.61 11.64-40.98 25.94-34.01 32.3 15.74-15.88 83.8-26.4 81.76-13.24-9-51.35-53.3-37.27-66.57Z"
+                style="fill:#ff9999;stroke:#ff9999;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+              <path pathLength="1" id="line"
+                d="M5.32 78.13c.96-.01 5-8.5 5.54-8.54.58-.05 6.1 8.51 7.1 8.51 3.66 0 9.29.06 10.71.05 2.53-.01 4.82-72.88 4.82-72.88l4.76 97.28 3.97-24.45 20.45-.22C64 77.86 77.1 63.66 78.36 63.8c1.31.15 6.68 14.08 7.94 14.07 2.3-.03 33.32.04 35.76.02.96 0 5-8.5 5.53-8.53.59-.05 6.1 8.51 7.1 8.5 3.66 0 9.3.07 10.72.06 2.53-.02 4.81-72.89 4.81-72.89l4.77 97.28 3.97-24.44s83.34-3.33 74.69 7.67c-8.65 11-45.3-42.94-31.65-53.58 25.6-19.96 49.96 36.94 40.26 36.5-12.2-.53 1.8-62.32 23.41-51.7 32.24 15.86-17.56 84.92-26.4 81.77-5.73-2.05-.68-21.68 31.4-26.58 26.65-6.42 29.5 2.35 52.62 7.11 2.53-.02 4.82-72.89 4.82-72.89l4.76 97.28 3.97-24.44 20.45-.22c1.31-.02 14.41-14.22 15.68-14.07 1.32.15 6.7 14.08 7.95 14.07 2.29-.03 33.32.04 35.76.02.95 0 5-8.5 5.53-8.54.58-.04 6.1 8.52 7.1 8.52 3.66 0 9.3.06 10.72.05 2.53-.02 4.81-72.89 4.81-72.89l4.77 97.28 3.97-24.44 20.45-.23c1.31-.01 14.4-14.22 15.68-14.07 1.32.16 6.69 14.09 7.94 14.07" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <section class="casal">
+        <div class="container-casal">
+          <div class="imagem-casal" data-aos="fade-right" data-aos-duration="2000">
+
+            <div class="pai-imgs">
+              <div class="fotos">
+
+                <div class="divP1">
+                  <img src="../img/img1.jpg" alt="" class="imgfotos1">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP2">
+                  <img src="../img/img2.jpg" alt="" class="imgfotos2">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP3">
+                  <img src="../img/img3.jpg" alt="" class="imgfotos3">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP4">
+                  <img src="../img/img4.jpg" alt="" class="imgfotos4">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP5">
+                  <img src="../img/img5.jpg" alt="" class="imgfotos5">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP6">
+                  <img src="../img/img6.jpg" alt="" class="imgfotos6">
+                  <span>22/01/2002</span>
+                </div>
+
+              </div>
+
+              <div class="fotos2">
+
+                <div class="divP7">
+                  <img src="../img/img7.jpg" alt="" class="imgfotos7">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP8">
+                  <img src="../img/img2.jpg" alt="" class="imgfotos8">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP9">
+                  <img src="../img/img3.jpg" alt="" class="imgfotos9">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP10">
+                  <img src="../img/img1.jpg" alt="" class="imgfotos10">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP11">
+                  <img src="../img/img2.jpg" alt="" class="imgfotos11">
+                  <span>22/01/2002</span>
+                </div>
+
+                <div class="divP12">
+                  <img src="../img/img3.jpg" alt="" class="imgfotos12">
+                  <span>22/01/2002</span>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="texto-casal" data-aos="fade-left" data-aos-duration="2000" id="texto-casal">
+            <p class="textCasal">
+              A nossa história começou de maneira simples, mas cheia de significado. Com o tempo, fomos descobrindo
+              que
+              o amor verdadeiro está nos pequenos gestos, nas risadas compartilhadas, e no apoio incondicional que nos
+              damos todos os dias. Juntos, construímos não apenas uma vida a dois, mas também uma base sólida de
+              amizade, respeito e muito carinho.
+
+              Agora, estamos celebrando a fase mais doce da nossa caminhada: a preparação para o nosso grande dia.
+              Cada
+              passo desse processo tem sido recheado de felicidade, e nada poderia ser mais especial do que dividir
+              esse
+              momento com as pessoas que amamos.
+
+              Agradecemos de coração por estarem ao nosso lado nesta nova etapa e por fazerem parte dessa história.
+              Bem-vindos ao nosso Chá de Cozinha! Que seja um dia repleto de alegrias, lembranças e, claro, muito
+              amor!
+              💖🎉
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <p id="recados"></p>
+
+      <div data-aos="fade-up" data-aos-duration="2000">
+        <section class="recados">
+          <div class="algunsRecados">
+            <div class="tez">
+              <div>
+                <h2 class="recadosTema">Data</h2>
+                <p>1 de junho de 2025</p>
+
+              </div>
+              <div>
+                <h2 class="recadosTema">Tema</h2>
+                <p>Festa Junina</p>
+              </div>
+            </div>
+
+            <div class="divAgradecimento">
+
+              <div data-aos="fade-up-right" data-aos-duration="2000" class="textAgradecimento">
+                <p class="textAgradecimentoP">Estamos muito felizes em compartilhar com vocês este novo capítulo das
+                  nossas
+                  vidas! Obrigado por estarem ao nosso lado enquanto celebramos nossa casa nova! Este momento é ainda
+                  mais
+                  especial com a presença de cada um de vocês. Mal podemos esperar para receber todos na nossa nova
+                  casa!
+                </p>
+              </div>
+
+              <div data-aos="fade-left" data-aos-duration="2000" class="textAgradecimento">
+                <div class="textAgradecimentoP">
+                  <div class="roupas">
+                    <h2>Vestimentas</h2>
+                    <img src="../img/camisa.jpg" alt="" class="roupa">
+                    <img src="../img/vestido.jpg" alt="" class="roupa">
+
+                    <p>
+                      Queridos convidados,
+                      Estamos super animados para tê-lo(a) conosco em nossa festa temática! Para tornar a experiência
+                      ainda mais divertida e imersiva, gostaríamos de convidá-lo(a) a vir a caráter de acordo com o tema
+                      da festa.
+                      O nosso Chárraia promete ser uma noite cheia de diversão e surpresas, e sua presença caracterizada
+                      vai tornar tudo ainda mais especial. Não se preocupe, o importante é se divertir e entrar no
+                      clima!
+                      Contamos com sua presença e look incrível!
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div data-aos="fade-up-right" data-aos-duration="2000" class="textAgradecimento">
+                <p class="textAgradecimentoP">
+                  Para facilitar a escolha de presentes, criamos uma lista online com itens que gostaríamos de adicionar
+                  à
+                  nossa
+                  nova casa. Vocês podem acessar a lista e escolher algo que ache especial para nós!"
+                  Aqui está o link para nossa lista de presentes: <a href="./listaDePresentes.html"
+                    class="textAgradecimentoLink">ListadePresentes</a>.
+                  Sua ajuda será uma grande contribuição para tornar nossa casa ainda mais aconchegante!
+                </p>
+              </div>
+
+              <!-- <div>
+                <p>Preferências Alimentares: canjica, a pamonha, o milho cozido, quentão, paçoca e bolo de fubá</p>
+                <p>Contatos: (11) 98765-4321 | exemplo@email.com</p>
+              </div> -->
+
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <p id="listatitle"></p>
+
+      <div data-aos="fade-up" data-aos-duration="1000" data-aos-offset="-50" class="anima-section">
+
+        <section class="listaPresentes">
+          <h1 class="title">Lista de Presentes</h1>
+          <div id="presentes-lista" class="presentes-lista"></div>
+        </section>
+
+        <div class="btn-vM">
+          <a href="listaDePresentes.html"><input type="button" value="Ver Mais" class="verMais"></a>
+        </div>
+
+      </div>
+
+      <p id="info-mapTitle"></p>
+
+      <section class="info-map">
+        <div class="local">
+
+          <h2>Endereço</h2>
+          <p>Rua Das Taltaltal</p>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14695.814756221516!2d-43.22146363459352!3d-22.95193260855314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x997fd5984aa13f%3A0x9dc984d7019502de!2sCristo%20Redentor!5e0!3m2!1spt-BR!2sbr!4v1738196320336!5m2!1spt-BR!2sbr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer_pai">
+      <div class="footer-container">
+        <div class="footer-info">
+          <p><strong>Contato:</strong> contato@cha-cozinha.com</p>
+          <p><strong>Telefone:</strong> <i class='bx bxs-phone'></i> (11) 9999-9999</p>
+          <p><strong>Redes sociais:</strong>
+            <a href="#" target="_blank"> <i class='bx bxl-instagram-alt'></i>Instagram</a> |
+          </p>
+        </div>
+        <!-- <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Política de privacidade</a>
+          <a href="#">Termos e condições</a>
+        </div> -->
+
+        <div class="footer-copyright">
+          <p>© 2025 Chá de Cozinha. Todos os direitos reservados.</p>
+          <p>Criador do site: felix.gabriel2027@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    AOS.init();
+  </script>
+
+  <script src="app.js"></script>
+  <script src="index.js"></script>
+  <script src="text.js"></script>
+
+</body>
+
+</html>

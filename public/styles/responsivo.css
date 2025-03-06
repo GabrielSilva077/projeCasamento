@@ -1,0 +1,433 @@
+/* --- responsividade ---- */
+.side_navegar {
+    display: none;
+}
+
+@media (max-width: 950px) {
+
+    .recados {
+        margin-top: -150px;
+        width: 100%;
+    }
+
+    .text-carrossel {
+        padding-top: 50%;
+    }
+
+    .carrossel {
+        margin-top: 0px;
+    }
+
+    main {
+        margin-top: 0;
+    }
+
+    .nav_navegar {
+        gap: 3%;
+    }
+
+    .flex_prod {
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flex_prod>div {
+        margin-bottom: 50px;
+    }
+
+    .nav_navegar {
+        display: none;
+    }
+
+    .side_navegar {
+        display: block;
+        position: fixed;
+    }
+
+    .side_navegar {
+        text-align: start;
+        position: fixed;
+        z-index: 10px;
+        height: 33%;
+        width: 60%;
+        top: 0;
+        font-size: clamp(1rem, 1.1vw, 3rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        display: none;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 10px;
+        margin-left: -250px;
+        transition: margin-left 0.3s ease;
+    }
+
+    .side_navegar ul {
+        margin-top: 20px;
+        padding: 3%;
+        border-radius: 10px;
+        background-color: #bdb8bd;
+        text-align: center;
+        width: 70%;
+        margin-left: 10px;
+    }
+
+    .side_navegar ul:hover {
+        cursor: pointer;
+        background-color: #bdb8bd;
+        padding: 0.4%;
+        transition: all 0.3s;
+    }
+
+    .icones {
+        width: 30px;
+        position: absolute;
+        display: block;
+        z-index: 2000;
+    }
+
+    #fecharImg {
+        position: absolute;
+        top: 10px;
+        left: -60px;
+        z-index: 100;
+        width: 25px;
+        height: auto;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .icones-div {
+        background-color: rgba(255, 255, 255, 0.226);
+        height: 30px;
+        width: 100%;
+        top: 0;
+        font-size: clamp(1rem, 0.9vw, 3rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        position: fixed;
+        backdrop-filter: blur(5px);
+        z-index: 2;
+    }
+
+    .img-casa {
+        width: 65%;
+    }
+
+    .cls {
+        flex-wrap: wrap;
+    }
+
+    .cls-text-casal {
+        width: 100%;
+    }
+
+    .carousel-image {
+        width: 100%;
+    }
+
+    .direita {
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    .info-noivos {
+        display: block;
+        margin-top: 100px;
+    }
+
+    #carousel {
+        width: 100%;
+        height: 380px;
+        margin-left: 0;
+    }
+
+    #esquerda {
+        width: 100%;
+        margin-left: 100px;
+    }
+
+    .texto_casal {
+        width: 60%;
+        padding: 40px;
+        margin-left: 23%;
+    }
+
+    .card_prod-g {
+        padding-bottom: 70px;
+    }
+
+    .filtro select {
+        padding: 0;
+        width: 123px;
+        height: 35px;
+    }
+}
+
+@media (min-width: 951px) {
+    #myVideo2 {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        transform: translate(500px, 20px);
+    }
+}
+
+@media (max-width: 951px) {
+    #myVideo {
+        display: none;
+    }
+
+    #myVideo2 {
+        margin-top: -150px;
+    }
+}
+
+@media (min-width: 951px) {
+    #myVideo2 {
+        display: none;
+    }
+}
+
+/* ----------------------- */
+
+@media screen and (max-width: 1470px) {
+    #presentes-lista {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .produto-card {
+        width: calc(33.33% - 20px);
+        width: 340px;
+        height: 500px;
+    }
+
+    .container-casal {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        max-width: 900px;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .imagem-casal,
+    .texto-casal {
+        text-align: justify;
+        flex: 1 1 100% !important;
+    }
+
+    .presentes-lista {
+        height: 960px !important;
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+
+    .listaPresentes {
+        margin-top: 10%;
+    }
+
+    #texto-casal{
+        margin-top: 250px;
+        width: 10px !important;
+        margin-left: -115px;
+        padding: 140px;
+    }
+}
+
+/* Estilos gerais para a animação */
+.anima-section {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Estilos padrão para a animação no desktop */
+.anima-section[data-aos="fade-up"] {
+    animation-duration: 1000ms;
+    data-aos-offset: -50;
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media screen and (max-width: 992px) {
+
+    .footer_pai {
+        margin-top: 100px !important;
+        height: 300px;
+    }
+
+    .filtro-container{
+        margin-top: -70px;
+        margin-left: 190px;
+    }
+
+    #filtro-categoria{
+        width: 120px;
+    }
+
+    .anima-section[data-aos="fade-up"] {
+        animation-duration: 500ms;
+        data-aos-offset: -400;
+    }
+
+    #svg5{
+        width: 250px;
+        margin-left: -80px;
+    }
+
+    #presentes-lista {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .produto-card {
+        width: calc(50% - 10px);
+        height: 300px;
+    }
+
+    .produto-card img {
+        height: 100px;
+    }
+
+    .produto-card:hover {
+        transform: none;
+    }
+
+    #btn-finalizar {
+        position: absolute;
+        margin-left: 15%;
+    }
+
+    .sidebar {
+        width: 50px;
+        height: 60px;
+        background-color: #1d1b31;
+    }
+
+    .nav-list.active {
+        display: block;
+    }
+
+    .sidebar ul li:hover .tooltip {
+        display: none;
+    }
+
+    .inv_nav li {
+        display: none;
+    }
+
+    .title {
+        margin-bottom: 30px;
+    }
+
+    .produto-card img {
+        height: 60%;
+    }
+
+
+    #form-container.active {
+        width: 70%;
+        margin-left: 22%;
+        height: 300px;
+    }
+
+    .sidebar.active {
+        width: 240px;
+        height: 400px;
+        background-color: #1d1b31;
+        backdrop-filter: saturate(180%) blur(5px);
+        position: fixed;
+    }
+
+    #icone-arrow {
+        margin-top: 30% !important;
+        font-size: clamp(2rem, 3vw, 6rem);
+    }
+
+    .modal-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        height: 480px;
+    }
+
+    .imagem-container {
+        width: 80%;
+        border-radius: 10px;
+        margin-bottom: -100px;
+        height: 60%;
+    }
+
+    .presentes-lista {
+        height: 1540px;
+        overflow: hidden;
+        margin-bottom: 50px;
+    }
+
+    #lista {
+        margin-top: 30%;
+    }
+
+    #btn-finalizar {
+        position: absolute;
+        margin-left: 20%;
+        top: -100px;
+    }
+
+    .divAgradecimento{
+        flex-wrap: wrap;
+    }
+
+    .textAgradecimentoP{
+        text-align: justify;
+        width: 100%;
+        margin-left: 0px;
+    }
+    
+    .textAgradecimento{
+        width: 100%;
+        margin: 0;
+    }
+
+    .divAgradecimento>div:nth-child(1) {
+        text-align: center;
+        align-self: center;
+        margin-top: -50px;
+    }
+    
+    .divAgradecimento>div:nth-child(2) {
+        text-align: center;
+        align-self: center;
+        width: 100%;
+        margin-top: -50px;
+    }
+    
+    
+    .divAgradecimento>div:nth-child(3) {
+        margin-top: -50px;
+        text-align: center;
+        align-self: center;
+    }
+    
+    .footer_pai{
+        position: absolute;
+        margin-top: 100%;
+        margin-bottom: 0;
+    }
+
+}
+
+.main_presentes {
+    height: 100%;
+    overflow: hidden;
+}

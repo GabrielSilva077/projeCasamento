@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrinho de Compras</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+
+<body>
+
+  <header>
+    <div class="sidebar">
+      <div class="logo-content">
+        <div class="logo">
+          <img src="../img/aliancas-de-casamento.png" alt="" class="img-alianca">
+          <div class="logo-name">Victor e Nayara</div>
+        </div>
+        <i class='bx bx-menu' id="btn">
+
+          <span></span>
+          <span></span>
+          <span></span>
+        </i>
+      </div>
+
+      <nav>
+        <ul class="nav-list">
+
+          <li><a href="index.html">
+              <i class='bx bxs-home'></i>
+              <span class="link-name">Home</span>
+            </a>
+          </li>
+          <li><a href="listaDePresentes.html">
+              <i class='bx bxs-gift'></i>
+              <span class="link-name">Lista de presentes</span>
+            </a>
+          </li>
+          <li><a href="index.html#info-mapTitle">
+              <i class='bx bxs-map'></i>
+              <span class="link-name">Local</span>
+            </a>
+          </li>
+          <li><a href="#">
+              <i class='bx bxs-user-check'></i>
+              <span class="link-name">Confirmar presença</span>
+            </a>
+          </li>
+          <li><a href="index.html#recados">
+              <i class='bx bxs-chat'></i>
+              <span class="link-name">Reacados</span>
+            </a>
+          </li>
+          <li><a href="formulario.html">
+              <i class='bx bxs-cart'></i>
+              <span class="link-name">Carrinho</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="nav-navbar">
+      <ul class="inv_nav">
+        <!-- <li><a href="#">O casal</a></li> -->
+        <li><a href="index.html">
+            <i class='bx bxs-home'></i>
+            Home</a>
+        </li>
+        <li><a href="listaDePresentes.html">
+            <i class='bx bxs-gift'></i>
+            Lista de presentes</a>
+        </li>
+        <li><a href="index.html#info-mapTitle" data-scroll-href="#local-scroll">
+            <i class='bx bxs-map'></i>
+            Local</a>
+        </li>
+        <li><a href="#">
+            <i class='bx bxs-user-check'></i>
+            Confirmar presença</a>
+        </li>
+        <li><a href="index.html#recados">
+            <i class='bx bxs-chat'></i>
+            Reacados</a>
+        </li>
+        <li><a href="formulario.html">
+            <i class='bx bxs-cart'></i>
+            carrinho</a>
+        </li>
+      </ul>
+    </nav>
+
+
+  </header>
+
+  <main class="main-carrinho">
+    <div class="carrinho">
+
+      <div>
+        <h1 class="titleCarrinho">Carrinho</h1>
+
+
+
+        <div id="itens-carrinho">
+          <!-- Aqui os itens do carrinho serão preenchidos dinamicamente -->
+        </div>
+      </div>
+
+      <button id="btn-finalizar" type="button" class="btn-final">Presentear</button>
+
+      <div id="form-container">
+        <form class="form-class" id="form-email" action="/enviar-email" method="POST">
+          <label class="dados_email" for="nome">Nome:</label>
+          <input class="dados_email" type="text" id="nome" name="nome" required>
+          <label class="dados_email" for="email">Email:</label>
+          <input class="dados_email" type="email" id="email" name="email" required>
+          <label class="dados_email" for="mensagem">Mensagem:</label>
+          <textarea class="dados_email" id="mensagem" name="mensagem" required></textarea>
+          <button class="dados_email" type="submit">Enviar Email</button>
+          <button class="dados_email" type="button" id="cancelar-btn">Cancelar</button>
+        </form>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer class="footer_pai" id="footer_carrinho">
+    <div class="footer-container">
+      <div class="footer-info">
+        <p><strong>Contato:</strong> contato@cha-cozinha.com</p>
+        <p><strong>Telefone:</strong> <i class='bx bxs-phone'></i> (11) 9999-9999</p>
+        <p><strong>Redes sociais:</strong>
+          <a href="#" target="_blank"> <i class='bx bxl-instagram-alt'></i>Instagram</a> |
+        </p>
+      </div>
+      <!-- <div class="footer-links">
+        <a href="#">Sobre nós</a>
+        <a href="#">Política de privacidade</a>
+        <a href="#">Termos e condições</a>
+      </div> -->
+
+      <div class="footer-copyright">
+        <p>© 2025 Chá de Cozinha. Todos os direitos reservados.</p>
+        <p>Criador do site: felix.gabriel2027@gmail.com</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal de Notificação -->
+  <div id="modal-sucesso" class="modal">
+    <div class="modal-conteudo">
+      <p>Presente reservado com sucesso,
+        Lembrete: Você será responsável por levar o presente no dia da festa. Não se esqueça de trazer com você no
+        evento!
+      </p>
+      <button id="btn-ok" class="btn-ok">Ok</button>
+    </div>
+  </div>
+
+  <div id="modal-erro" class="modal-erro">
+    <div class="modal-conteudo">
+      <p>Seu carrinho ainda está vazio.</p>
+      <button id="btn-ok-erro">OK</button>
+    </div>
+  </div>
+
+
+  <script src="carrinho.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
