@@ -8,7 +8,7 @@
 
 .title_img::before {
     content: "";
-    background-image: url("../../img/plano1.jpg");
+    background-image: url("../img/casal.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     position: absolute;
@@ -71,10 +71,10 @@
     position: relative;
     z-index: 1;
     display: block;
-    font-family: "Bodoni Moda", serif;
+    /* font-family: "Bodoni Moda", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal; */
 }
 
 

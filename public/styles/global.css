@@ -26,6 +26,9 @@ body {
     /* background: linear-gradient(180deg, #ffe5ec, #ffdab9); */
     background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: "Doppio One", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -39,4 +42,8 @@ html {
 
 html {
     scroll-behavior: smooth;
+}
+
+.title{
+    font-family: "Pinyon Script", serif;
 }

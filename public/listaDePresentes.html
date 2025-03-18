@@ -18,7 +18,7 @@
         <div class="sidebar">
             <div class="logo-content">
                 <div class="logo">
-                    <img src="../img/aliancas-de-casamento.png" alt="" class="img-alianca">
+                    <img src="img/aliancas-de-casamento.png" alt="" class="img-alianca">
                     <div class="logo-name">Victor e Nayara</div>
                 </div>
                 <i class='bx bx-menu' id="btn">
@@ -47,14 +47,9 @@
                             <span class="link-name">Local</span>
                         </a>
                     </li>
-                    <li><a href="#">
-                            <i class='bx bxs-user-check'></i>
-                            <span class="link-name">Confirmar presença</span>
-                        </a>
-                    </li>
                     <li><a href="index.html#recados">
                             <i class='bx bxs-chat'></i>
-                            <span class="link-name">Reacados</span>
+                            <span class="link-name">Recados</span>
                         </a>
                     </li>
                     <li><a href="formulario.html">
@@ -81,13 +76,9 @@
                         <i class='bx bxs-map'></i>
                         Local</a>
                 </li>
-                <li><a href="#">
-                        <i class='bx bxs-user-check'></i>
-                        Confirmar presença</a>
-                </li>
                 <li><a href="index.html#recados">
                         <i class='bx bxs-chat'></i>
-                        Reacados</a>
+                        Recados</a>
                 </li>
                 <li><a href="formulario.html">
                         <i class='bx bxs-cart'></i>
@@ -113,19 +104,33 @@
 
                     <h1 class="title" id="lista">Lista de Presentes</h1>
 
+                    <div class="pai-paleta">
+                        <p class="paleta-Text">Paleta de Cores</p>
+                        <div class="paleta-c">
+                            <p class="preto cores"></p>
+                            <p class="cinza-escuro cores"></p>
+                            <p class="branco cores"></p>
+                            <p class="prata cores"></p>
+                            <p class="madeira-clara cores"></p>
+                        </div>
+                    </div>
+
                     <div class="filtro-container">
                         <select id="filtro-categoria">
-                            <option value="">Todas as Categorias</option>
-                            <option value="Utensílios de Cozinha">Utensílios de Cozinha</option>
-                            <option value="Eletrodomésticos">Eletrodomésticos</option>
-                            <option value="Louças e Talheres">Louças e Talheres</option>
-                            <option value="Itens de Armazenamento">Itens de Armazenamento</option>
-                            <option value="Decoração para Cozinha">Decoração para Cozinha</option>
-                            <option value="Produtos para Preparação de Alimentos">Produtos para Preparação de Alimentos</option>
-                            <option value="Itens para Bebidas">Itens para Bebidas</option>
+                          <option value="">Todas as Categorias</option>
+                          <option value="🍽️ Cozinha – Utensílios Gerais">🍽️ Cozinha – Utensílios Gerais</option>
+                          <option value="🍳 Cozinha – Panelas e Formas">🍳 Cozinha – Panelas e Formas</option>
+                          <option value="🍴 Cozinha – Talheres e Louças">🍴 Cozinha – Talheres e Louças</option>
+                          <option value="🧂 Cozinha – Organização e Armazenamento">🧂 Cozinha – Organização e Armazenamento</option>
+                          <option value="🔌 Eletrodomésticos Pequenos">🔌 Eletrodomésticos Pequenos</option>
+                          <option value="🧹 Limpeza e Lavanderia">🧹 Limpeza e Lavanderia</option>
+                          <option value="🧺 Lavanderia – Cuidados com Roupas">🧺 Lavanderia – Cuidados com Roupas</option>
+                          <option value="🚿 Banheiro e Têxteis">🚿 Banheiro e Têxteis</option>
+                          <option value="🥗 Servir e Decorar">🥗 Servir e Decorar</option>
                         </select>
                         <button id="btn-filtrar">Filtrar</button>
-                    </div>
+                      </div>
+                      
                     
 
                     <div id="presentes-lista"></div>
@@ -166,6 +171,7 @@
     <script src="app.js"></script>
     <script src="index.js"></script>
     <script src="filtro.js"></script>
+
 
 </body>
 

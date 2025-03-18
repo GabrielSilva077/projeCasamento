@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 
+.casal{
+    margin-top: 100px;
+}
 
 .pai-imgs {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: -90px;
-    margin-left: -100px;
+    margin-left: -200px;
     font-family: "Pinyon Script", serif;
     font-weight: 400;
     font-style: normal;
 }
 
 .fotos,
-.fotos2,
-.fotos3 {
+.fotos2 {
     display: flex;
     position: absolute;
 }
@@ -28,9 +29,6 @@
     margin-top: 50%;
 }
 
-.fotos3 {
-    margin-top: 150%;
-}
 
 /* Estilização das imagens */
 [class^="imgfotos"] {
@@ -40,18 +38,19 @@
     background-color: white;
     border: 0.1px solid rgb(192, 192, 192);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+    filter: blur(4px);
 }
 
 /* Estilização dos vídeos */
-[class^="videofotos"] {
+/* [class^="videofotos"] {
     width: 180px;
     height: 260px;
     padding: 10px 5px 50% 5px;
     background-color: white;
     border: 0.1px solid rgb(192, 192, 192);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
-    object-fit: cover; /* Para ajustar o vídeo dentro do espaço */
-}
+    object-fit: cover;
+} */
 
 /* Estilização das divs posicionadas */
 [class^="divP"] {
@@ -146,9 +145,6 @@
 
 
 
-
-
-
 .divP13 {
     transform: rotate(-15deg);
     margin-left: -300px;
@@ -188,53 +184,18 @@
 }
 
 
-
-
-@media (max-width: 768px) {
-
-    .img1,
-    .img2,
-    .img3,
-    .img4,
-    .img5,
-    .img6,
-    .img7,
-    .img8,
-    .img9,
-    .img10,
-    .img11,
-    .img12,
-    .img13,
-    .img14,
-    .img15,
-    .img16,
-    .img17,
-    .videofotos1 {
-        width: 150px;
-        height: 220px;
+/* @media (max-width: 750px){
+    
+    [class^="imgfotos"] {
+        width: 100px;
+        height: 200px;
+        padding: 10px 5px 30% 5px;
     }
 
-    .divP1,
-    .divP2,
-    .divP3,
-    .divP4,
-    .divP5,
-    .divP6,
-    .divP7,
-    .divP8,
-    .divP9,
-    .divP10,
-    .divP11,
-    .divP12,
-    .divP13,
-    .divP14,
-    .divP15,
-    .divP16,
-    .divP17,
-    .divP118 {
-        width: 150px;
-        height: 220px;
+    [class^="divP"] {
+        
     }
+
 
     .divP1 {
         margin-left: -150px;
@@ -249,7 +210,7 @@
     }
 
     .divP4 {
-        margin-left: 150px;
+        margin-left: -50px;
     }
 
     .divP5 {
@@ -257,7 +218,7 @@
     }
 
     .divP6 {
-        margin-left: -450px;
+        margin-left: -250px;
     }
 
     .divP7 {
@@ -273,7 +234,7 @@
     }
 
     .divP10 {
-        margin-left: 200px;
+        margin-left: -150px;
         font-size: 20px;
     }
 
@@ -282,14 +243,78 @@
     }
 
     .divP12 {
-        margin-left: -450px;
+        margin-left: -50px;
+        transform: rotate(-15deg);
     }
 
-    .fotos2 {
-        margin-top: 50%;
-    }
 
-    .pai-imgs {
-        margin-top: 150px;
-    }
+} */
+
+
+
+
+[div^="carousel"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+[class^="carousel-image"] {
+    width: 280px;
+    height: 350px;
+    padding: 10px 5px 30% 5px;
+    background-color: white;
+    border: 0.1px solid rgb(192, 192, 192);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+    left: 0;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.cls {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    margin-left: -65%;
+    margin-top: -80px;
+}
+
+.cls-text-casal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.span-textocasal {
+    font-weight: bold;
+}
+
+.direita {
+    width: 100%;
+    z-index: 1;
+}
+
+/* ----------------------- */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    /* Ajuste o tamanho conforme necessário */
+    height: 580px;
+    overflow: hidden;
+}
+
+
+.carousel-image.active {
+    opacity: 1;
+    /* Torna visível a imagem ativa */
+}
+
+.texto-casal{
+    margin-top: -50%;
 }

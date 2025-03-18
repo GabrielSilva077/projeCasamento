@@ -28,10 +28,10 @@ const upload = multer({ storage: storage });
 
 // Configurando a conexão com o banco de dados MySQL
 const db = mysql.createConnection({
-  host: "localhost", // Host do MySQL
-  user: "root", // Usuário do MySQL
-  password: "S&n@99pvsFzxx", // Senha do MySQL
-  database: "ListaDePresentes", // Nome do banco de dados
+  host: process.env.DB_HOST, // Host do MySQL
+  user: process.env.DB_USER, // Usuário do MySQL
+  password: process.env.DB_PASSWORD, // Senha do MySQL
+  database: process.env.DB_NAME, // Nome do banco de dados
 });
 
 // Verificando se a conexão com o banco de dados foi bem-sucedida
@@ -77,11 +77,12 @@ app.get("/presentes", (req, res) => {
   });
 });
 
-
 // Rota para realizar a compra de um item
 app.post("/comprar/:id", (req, res) => {
   const id = req.params.id;
   const { quantidade } = req.body;
+
+  console.log(`Tentando comprar item com ID: ${id}, Quantidade: ${quantidade}`);
 
   // Verifica se a quantidade foi fornecida e é válida
   if (!quantidade || quantidade <= 0) {
@@ -92,17 +93,24 @@ app.post("/comprar/:id", (req, res) => {
     "SELECT quantidade_estoque, disponivel FROM presentes WHERE id = ?";
   db.query(checkQuery, [id], (err, results) => {
     if (err) {
+      console.error("Erro ao verificar o item:", err);
       return res.status(500).send("Erro ao verificar o item.");
     }
 
     const item = results[0];
 
-    if (!item.disponivel || item.quantidade_estoque <= 0) {
+    if (!item || item.disponivel !== 1 || item.quantidade_estoque <= 0) {
+      console.log(`Item com ID ${id} não disponível ou sem estoque.`);
       return res.status(400).send("Item indisponível para compra.");
     }
 
+    console.log("Resultado da consulta:", results);
+
     // Verifica se a quantidade solicitada é maior que o estoque disponível
     if (quantidade > item.quantidade_estoque) {
+      console.log(
+        `Quantidade solicitada excede o estoque disponível. Estoque: ${item.quantidade_estoque}`
+      );
       return res
         .status(400)
         .send("Quantidade solicitada excede o estoque disponível.");
@@ -113,10 +121,33 @@ app.post("/comprar/:id", (req, res) => {
       "UPDATE presentes SET quantidade_estoque = quantidade_estoque - ? WHERE id = ?";
     db.query(updateQuery, [quantidade, id], (err) => {
       if (err) {
+        console.error("Erro ao atualizar o estoque:", err);
         return res.status(500).send("Erro ao atualizar o estoque.");
       }
+      console.log(`Estoque do produto com ID ${id} atualizado com sucesso.`);
       res.send("Compra realizada com sucesso!");
     });
+  });
+});
+
+// Rota para restaurar o estoque quando o item for removido do carrinho
+app.post("/restaurarEstoque/:id", (req, res) => {
+  const id = req.params.id; // Obtém o ID do produto
+  const { quantidade } = req.body; // Obtém a quantidade a ser restaurada
+
+  if (!quantidade || quantidade <= 0) {
+    return res.status(400).send("Quantidade inválida.");
+  }
+
+  const updateQuery =
+    "UPDATE presentes SET quantidade_estoque = quantidade_estoque + ? WHERE id = ?";
+  db.query(updateQuery, [quantidade, id], (err) => {
+    if (err) {
+      console.error("Erro ao restaurar o estoque:", err);
+      return res.status(500).send("Erro ao restaurar o estoque.");
+    }
+    console.log(`Estoque do produto com ID ${id} restaurado com sucesso.`);
+    res.send("Estoque restaurado com sucesso!");
   });
 });
 
@@ -131,8 +162,10 @@ app.post("/finalizar-compra", async (req, res) => {
     await Promise.all(
       items.map(async (item) => {
         const { id, quantidade } = item;
-        const [results] = await db.promise().query("SELECT quantidade_estoque FROM presentes WHERE id = ?", [id]);
-        
+        const [results] = await db
+          .promise()
+          .query("SELECT quantidade_estoque FROM presentes WHERE id = ?", [id]);
+
         if (results.length === 0) {
           throw new Error(`Produto com ID ${id} não encontrado.`);
         }
@@ -142,10 +175,12 @@ app.post("/finalizar-compra", async (req, res) => {
           throw new Error(`Estoque insuficiente para o produto com ID ${id}.`);
         }
 
-        await db.promise().query(
-          "UPDATE presentes SET quantidade_estoque = quantidade_estoque - ? WHERE id = ?",
-          [quantidade, id]
-        );
+        await db
+          .promise()
+          .query(
+            "UPDATE presentes SET quantidade_estoque = quantidade_estoque - ? WHERE id = ?",
+            [quantidade, id]
+          );
       })
     );
 
@@ -301,8 +336,8 @@ app.delete("/excluir/:id", (req, res) => {
 });
 
 app.post("/adicionar", upload.single("imagem"), (req, res) => {
-  console.log(req.body);  // Verifique os dados do corpo da requisição
-  console.log(req.file);   // Verifique os dados da imagem
+  console.log(req.body); // Verifique os dados do corpo da requisição
+  console.log(req.file); // Verifique os dados da imagem
 
   const { nome, preco, quantidade, categoria, linkProduto } = req.body;
   const imagem = req.file ? req.file.filename : null;
@@ -315,11 +350,67 @@ app.post("/adicionar", upload.single("imagem"), (req, res) => {
     [nome, preco, quantidade, imagem, categoria, linkProduto],
     (err) => {
       if (err) {
-        console.error("Erro ao adicionar o produto:", err);  // Verifique o erro
+        console.error("Erro ao adicionar o produto:", err); // Verifique o erro
         return res.status(500).send("Erro ao adicionar o produto.");
       }
 
       res.send("Produto adicionado com sucesso!");
     }
   );
+});
+
+app.post("/adicionarAoCarrinho", async (req, res) => {
+  const { produtoId } = req.body;
+  const connection = await pool.getConnection(); // Obtém uma conexão do pool
+
+  try {
+    await connection.beginTransaction(); // Inicia a transação
+
+    // Verifica se o item ainda está disponível
+    const [produto] = await connection.query(
+      "SELECT quantidade_estoque FROM presentes WHERE id = ? AND disponivel = 1 FOR UPDATE",
+      [produtoId]
+    );
+
+    if (produto.length === 0 || produto[0].quantidade_estoque <= 0) {
+      await connection.rollback(); // Cancela a transação
+      return res
+        .status(400)
+        .json({ message: "Produto esgotado ou já reservado" });
+    }
+
+    // Marca o produto como reservado
+    await connection.query("UPDATE presentes SET disponivel = 0 WHERE id = ?", [
+      produtoId,
+    ]);
+
+    // Adiciona ao carrinho
+    await connection.query("INSERT INTO carrinho (produto_id) VALUES (?)", [
+      produtoId,
+    ]);
+
+    await connection.commit(); // Confirma a transação
+    res.status(200).json({ message: "Produto adicionado ao carrinho" });
+  } catch (error) {
+    await connection.rollback(); // Cancela a transação em caso de erro
+    res.status(500).json({ message: "Erro ao adicionar ao carrinho" });
+  } finally {
+    connection.release(); // Libera a conexão
+  }
+});
+
+// Carregando as variáveis do .env
+const validUsername = process.env.ADMIN_USERNAME;
+const validPassword = process.env.ADMIN_PASSWORD; // Idealmente, use bcrypt para senha segura
+
+// Rota para login
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+
+  // Verificando se as credenciais estão corretas
+  if (username === validUsername && password === validPassword) {
+    return res.status(200).json({ message: "Login bem-sucedido" });
+  } else {
+    return res.status(401).json({ message: "Usuário ou senha incorretos." });
+  }
 });

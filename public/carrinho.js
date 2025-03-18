@@ -5,7 +5,193 @@ document.addEventListener("DOMContentLoaded", function () {
   // Elemento onde os itens do carrinho serão exibidos
   const itensCarrinhoElement = document.getElementById("itens-carrinho");
 
-  // Função para renderizar os itens do carrinho
+  // // Função para renderizar os itens do carrinho
+  // function renderizarCarrinho() {
+  //   itensCarrinhoElement.innerHTML = ""; // Limpa a exibição atual
+
+  //   if (carrinho.length === 0) {
+  //     itensCarrinhoElement.innerHTML = "<p>Carrinho vazio</p>";
+  //     return;
+  //   }
+
+  //   carrinho.forEach((item, index) => {
+  //     const itemElement = document.createElement("div");
+  //     itemElement.classList.add("item-carrinho");
+
+  //     itemElement.innerHTML = `
+  //     <img src="${item.imagemUrl}" alt="${item.nome}" class="imagem-carrinho" />
+  //     <div class="detalhes-item">
+  //       <p>${item.nome}</p>
+  //       <label for="quantidade-${item.id}">Quantidade:</label>
+  //       <input type="number" id="quantidade-${item.id}" value="${item.quantidade}" min="1" max="${item.estoque}" />
+  //       <button class="btn-excluir" data-index="${index}">Excluir</button>
+  //     </div>
+  //     <div id="cronometro-${item.id}" class="cronometro">
+  //       Tempo restante: <span id="tempo-restante-${item.id}">00:00</span>
+  //     </div>
+  //   `;
+
+  //     itensCarrinhoElement.appendChild(itemElement);
+
+  //     // Atualiza a quantidade ao mudar o campo de input
+  //     const quantidadeInput = document.getElementById(`quantidade-${item.id}`);
+  //     quantidadeInput.addEventListener("change", function () {
+  //       let novaQuantidade = parseInt(quantidadeInput.value);
+  //       if (novaQuantidade > item.estoque) {
+  //         novaQuantidade = item.estoque;
+  //         alert("Quantidade não pode ultrapassar o estoque disponível.");
+  //       }
+  //       item.quantidade = novaQuantidade;
+  //       salvarCarrinho();
+  //     });
+
+  //     // Botão de exclusão
+  //     const btnExcluir = itemElement.querySelector(".btn-excluir");
+  //     btnExcluir.addEventListener("click", function () {
+  //       excluirItem(index);
+  //     });
+
+  //     // Verifica o tempo limite do item e inicia o cronômetro
+  //     const limiteCarrinho = localStorage.getItem("dataLimiteCarrinho");
+  //     iniciarCronometro(item.id, new Date(limiteCarrinho));
+  //   });
+  // }
+
+  // Função para iniciar o cronômetro para cada item
+
+  function iniciarCronometro(itemId) {
+    const tempoRestanteElement = document.getElementById(
+      `tempo-restante-${itemId}`
+    );
+  
+    // Verifica se já existe um tempo final salvo no localStorage
+    let tempoFinalSalvo = localStorage.getItem(`tempoFinal-${itemId}`);
+  
+    if (!tempoFinalSalvo) {
+      // Se não existir, cria um novo tempo final (40 minutos a partir de agora)
+      const agora = new Date().getTime();
+      tempoFinalSalvo = agora + 40 * 60 * 1000; // 40 minutos em milissegundos
+      localStorage.setItem(`tempoFinal-${itemId}`, tempoFinalSalvo);
+    } else {
+      // Converte para número
+      tempoFinalSalvo = parseInt(tempoFinalSalvo);
+    }
+  
+    function atualizarCronometro() {
+      const agora = new Date().getTime();
+      let tempoRestante = Math.floor((tempoFinalSalvo - agora) / 1000); // Em segundos
+  
+      if (tempoRestante <= 0) {
+        clearInterval(interval);
+        tempoRestanteElement.textContent = "00:00";
+  
+        // Remove o item do carrinho e do localStorage
+        const index = carrinho.findIndex((item) => item.id === itemId);
+        if (index !== -1) {
+          excluirItem(index);
+          localStorage.removeItem(`tempoFinal-${itemId}`);
+        }
+      } else {
+        const minutos = Math.floor(tempoRestante / 60);
+        const segundos = tempoRestante % 60;
+        tempoRestanteElement.textContent = `${formatarTempo(
+          minutos
+        )}:${formatarTempo(segundos)}`;
+      }
+    }
+  
+    // Atualiza a cada segundo
+    const interval = setInterval(atualizarCronometro, 1000);
+    atualizarCronometro(); // Atualiza imediatamente ao iniciar
+  }
+  
+  // Função para formatar o tempo para dois dígitos (ex: 03:09)
+  function formatarTempo(tempo) {
+    return tempo < 10 ? `0${tempo}` : tempo;
+  }
+
+  // Função para excluir um item do carrinho
+  function excluirItem(index) {
+    const produtoRemovido = carrinho[index]; // Obtém o produto que será removido
+    carrinho.splice(index, 1); // Remove o item do carrinho
+    salvarCarrinho(); // Salva o carrinho atualizado
+
+    // Restaura o estoque do produto no banco de dados
+    fetch(`http://localhost:3000/restaurarEstoque/${produtoRemovido.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ quantidade: produtoRemovido.quantidade }), // Quantidade a ser restaurada
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        renderizarCarrinho(); // Atualiza a exibição do carrinho após a exclusão
+      })
+      .catch((error) => {
+        console.error("Erro ao restaurar o estoque:", error);
+      });
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+    // Re-renderiza o carrinho na página para refletir a exclusão
+    renderizarCarrinho();
+  }
+
+  // function renderizarCarrinho() {
+  //   itensCarrinhoElement.innerHTML = ""; // Limpa a exibição atual
+
+  //   if (carrinho.length === 0) {
+  //     itensCarrinhoElement.innerHTML = "<p>Carrinho vazio</p>";
+  //     return;
+  //   }
+
+  //   carrinho.forEach((item, index) => {
+  //     const itemElement = document.createElement("div");
+  //     itemElement.classList.add("item-carrinho");
+
+  //     itemElement.innerHTML = `
+  //     <img src="${item.imagemUrl}" alt="${item.nome}" class="imagem-carrinho" />
+  //     <div class="detalhes-item">
+  //       <p>${item.nome}</p>
+  //       <label for="quantidade-${item.id}">Quantidade:</label>
+  //       <input type="number" id="quantidade-${item.id}" value="${item.quantidade}" min="1" max="${item.estoque}" />
+  //       <button class="btn-excluir" data-index="${index}">Excluir</button>
+  //     </div>
+  //     <div id="cronometro-${item.id}" class="cronometro">
+  //       Tempo restante: <span id="tempo-restante-${item.id}">40:00</span>
+  //     </div>
+  //   `;
+
+  //     itensCarrinhoElement.appendChild(itemElement);
+
+  //     // Atualiza a quantidade ao mudar o campo de input
+  //     const quantidadeInput = document.getElementById(`quantidade-${item.id}`);
+  //     quantidadeInput.addEventListener("change", function () {
+  //       let novaQuantidade = parseInt(quantidadeInput.value);
+  //       if (novaQuantidade > item.estoque) {
+  //         novaQuantidade = item.estoque;
+  //         alert("Quantidade não pode ultrapassar o estoque disponível.");
+  //       }
+  //       item.quantidade = novaQuantidade;
+  //       salvarCarrinho();
+  //     });
+
+  //     // Botão de exclusão
+  //     const btnExcluir = itemElement.querySelector(".btn-excluir");
+  //     btnExcluir.addEventListener("click", function () {
+  //       excluirItem(index);
+  //     });
+
+  //     // Verifica o tempo limite do item e inicia o cronômetro
+  //     const limiteCarrinho = localStorage.getItem("dataLimiteCarrinho");
+  //     iniciarCronometro(item.id, new Date(limiteCarrinho));
+  //   });
+  // }
+
+  // Função para salvar o carrinho no LocalStorage
+
   function renderizarCarrinho() {
     itensCarrinhoElement.innerHTML = ""; // Limpa a exibição atual
 
@@ -19,31 +205,17 @@ document.addEventListener("DOMContentLoaded", function () {
       itemElement.classList.add("item-carrinho");
 
       itemElement.innerHTML = `
-      <img src="${item.imagemUrl}" alt="${item.nome}" class="imagem-carrinho" />
-      <div class="detalhes-item">
-        <p>${item.nome}</p>
-        <label for="quantidade-${item.id}">Quantidade:</label>
-        <input type="number" id="quantidade-${item.id}" value="${item.quantidade}" min="1" max="${item.estoque}" />
-        <button class="btn-excluir" data-index="${index}">Excluir</button>
-      </div>
-      <div id="cronometro-${item.id}" class="cronometro">
-        Tempo restante: <span id="tempo-restante-${item.id}">00:00</span>
-      </div>
-    `;
+        <img src="${item.imagemUrl}" alt="${item.nome}" class="imagem-carrinho" />
+        <div class="detalhes-item">
+          <p>${item.nome}</p>
+          <button class="btn-excluir" data-index="${index}">Excluir</button>
+        </div>
+        <div id="cronometro-${item.id}" class="cronometro">
+          Esse item será excluído do carrinho em: <span id="tempo-restante-${item.id}">40:00</span>
+        </div>
+      `;
 
       itensCarrinhoElement.appendChild(itemElement);
-
-      // Atualiza a quantidade ao mudar o campo de input
-      const quantidadeInput = document.getElementById(`quantidade-${item.id}`);
-      quantidadeInput.addEventListener("change", function () {
-        let novaQuantidade = parseInt(quantidadeInput.value);
-        if (novaQuantidade > item.estoque) {
-          novaQuantidade = item.estoque;
-          alert("Quantidade não pode ultrapassar o estoque disponível.");
-        }
-        item.quantidade = novaQuantidade;
-        salvarCarrinho();
-      });
 
       // Botão de exclusão
       const btnExcluir = itemElement.querySelector(".btn-excluir");
@@ -57,81 +229,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Função para iniciar o cronômetro para cada item
-  function iniciarCronometro(itemId, limiteCarrinho) {
-    const tempoRestanteElement = document.getElementById(
-      `tempo-restante-${itemId}`
-    );
-
-    // Calcula o tempo restante
-    const agora = new Date();
-    let tempoRestante = Math.floor((limiteCarrinho - agora) / 1000); // Em segundos
-
-    const interval = setInterval(() => {
-      const minutos = Math.floor(tempoRestante / 60);
-      const segundos = tempoRestante % 60;
-      tempoRestanteElement.textContent = `${formatarTempo(
-        minutos
-      )}:${formatarTempo(segundos)}`;
-
-      if (tempoRestante <= 0) {
-        clearInterval(interval); // Para o cronômetro
-        alert(`O tempo para finalizar a compra do item foi expirado.`);
-        // Aqui você pode adicionar a lógica para expirar o item do carrinho
-      } else {
-        tempoRestante--; // Decrementa o tempo
-      }
-    }, 1000);
-  }
-
-  // Função para formatar o tempo para dois dígitos (ex: 03:09)
-  function formatarTempo(tempo) {
-    return tempo < 10 ? `0${tempo}` : tempo;
-  }
-
-  // Função para excluir um item do carrinho
-  function excluirItem(index) {
-    carrinho.splice(index, 1); // Remove o item pelo índice
-    salvarCarrinho();
-    renderizarCarrinho(); // Atualiza a exibição do carrinho
-  }
-
-  // Função para salvar o carrinho no LocalStorage
   function salvarCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
   }
 
-  // Função para iniciar o cronômetro para cada item
-  function iniciarCronometro(itemId) {
-    const tempoRestanteElement = document.getElementById(
-      `tempo-restante-${itemId}`
-    );
-    let tempoRestante = 300; // 5 minutos (300 segundos)
-
-    const interval = setInterval(() => {
-      const minutos = Math.floor(tempoRestante / 60);
-      const segundos = tempoRestante % 60;
-      tempoRestanteElement.textContent = `${formatarTempo(
-        minutos
-      )}:${formatarTempo(segundos)}`;
-
-      if (tempoRestante <= 0) {
-        clearInterval(interval); // Para o cronômetro
-        alert(`O tempo para finalizar a compra do item foi expirado.`);
-        // Você pode adicionar aqui a lógica de expiração do item ou do carrinho
-      } else {
-        tempoRestante--; // Decrementa o tempo
-      }
-    }, 1000);
-  }
-
-  // Função para formatar o tempo para dois dígitos (ex: 03:09)
-  function formatarTempo(tempo) {
-    return tempo < 10 ? `0${tempo}` : tempo;
-  }
-
   // Renderiza os itens do carrinho ao carregar a página
-  renderizarCarrinho();
 
   // Função para exibir a modal de sucesso
   function exibirModalSucesso() {
@@ -252,23 +354,9 @@ document.addEventListener("DOMContentLoaded", function () {
       formContainer.classList.remove("active"); // Esconde o formulário
     });
   }
+
+  renderizarCarrinho();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // document.addEventListener("DOMContentLoaded", function () {
 //   // Recupera o carrinho do LocalStorage ou cria um vazio
@@ -326,7 +414,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //       // Recupera a data limite do carrinho armazenada no localStorage
 //       const limiteCarrinho = new Date(localStorage.getItem("dataLimiteCarrinho"));
 //       console.log('Data Limite Carrinho:', limiteCarrinho);
-      
+
 //       // Inicia o cronômetro para cada item
 //       iniciarCronometro(item.id, limiteCarrinho);
 //     });

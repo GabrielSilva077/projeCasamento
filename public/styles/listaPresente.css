@@ -44,7 +44,7 @@
   width: 80%;
   height: 240px;
   border-radius: 10px;
-  margin-left: 10%;  
+  margin-left: 10%;
 }
 
 .produto-card p {
@@ -73,7 +73,7 @@
   font-size: clamp(1.5rem, 3vw, 4rem);
 }
 
-#lista{
+#lista {
   margin-bottom: 100px;
 }
 
@@ -81,7 +81,7 @@
   margin-top: 200px;
 }
 
-.adicionar-carrinho{
+.adicionar-carrinho {
   margin-top: 10%;
   padding: 10px;
   background-color: #007BFF;
@@ -93,12 +93,14 @@
 
 
 .presentes-lista {
-  height: 850px; /* Define um tamanho fixo para a metade */
-  overflow: hidden; /* Esconde o conteúdo extra */
+  height: 850px;
+  /* Define um tamanho fixo para a metade */
+  overflow: hidden;
+  /* Esconde o conteúdo extra */
   margin-bottom: 50px !important;
 }
 
-.verMais{
+.verMais {
   width: 200px;
   padding: 10px;
   border: none;
@@ -109,21 +111,21 @@
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
-.verMais:hover{
+.verMais:hover {
   background-color: #0571e4;
   cursor: pointer;
   color: rgb(219, 217, 217);
   transition: all 0.3s;
 }
 
-.btn-vM{
+.btn-vM {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.JAJAJ{
+.JAJAJ {
   margin-top: 200px;
 }
 
@@ -142,7 +144,7 @@
   border-radius: 5px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
   font-size: clamp(0.7rem, 1vw, 4rem);
-  width: 200px;
+  width: 220px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -160,4 +162,87 @@
 
 #btn-filtrar:hover {
   background-color: #0056b3;
+}
+
+
+:root {
+  /* Preto */
+  --preto: #1a1a1a;
+  /* Preto intenso */
+
+  /* Cinza Claro */
+  --cinza-claro: #d3d3d3;
+  /* Cinza suave */
+
+  /* Cinza Escuro */
+  --cinza-escuro: #585858;
+  /* Cinza profundo */
+
+  /* Branco */
+  --branco: #ffffff;
+  /* Branco puro */
+
+  /* Prata ou Aço Escovado */
+  --prata: #b0b0b0;
+  /* Tom metálico suave */
+
+  /* Madeira Clara */
+  --madeira-clara: #e0b97e;
+  /* Tom claro de madeira */
+}
+
+.pai-paleta {
+  position: absolute;
+  width: 100%;
+  margin-top: -200px;
+  margin-left: 30%;
+}
+
+.paleta-Text {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: clamp(0.7rem, 1.3vw, 4rem);
+}
+
+.paleta-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2%;
+}
+
+.preto,
+.cinza-claro,
+.cinza-escuro,
+.branco,
+.prata,
+.madeira-clara {
+  width: 2.5%;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  height: 50px;
+  border-radius: 50%;
+}
+
+.preto {
+  background-color: var(--preto);
+}
+
+.cinza-claro {
+  background-color: var(--cinza-claro);
+}
+
+.cinza-escuro {
+  background-color: var(--cinza-escuro);
+}
+
+.branco {
+  background-color: var(--branco);
+}
+
+.prata {
+  background-color: var(--prata);
+}
+
+.madeira-clara {
+  background-color: var(--madeira-clara);
 }

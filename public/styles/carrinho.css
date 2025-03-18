@@ -102,7 +102,7 @@ body.form-active::before {
 /* Exibe o formulário quando ativo */
 #form-container.active {
     display: block;
-    margin-left: 15%;
+    margin-left: 0%;
 }
 
 input[type="number"] {

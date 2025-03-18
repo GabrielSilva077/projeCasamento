@@ -9,11 +9,11 @@
 
 .local h2 {
     color: black;
-    font-size: clamp(1rem, 3vw, 4rem);
+    font-size: clamp(1rem, 2.3vw, 4rem);
 }
 
 .local p {
-    font-size: clamp(1rem, 2vw, 4rem);
+    font-size: clamp(1rem, 1.3vw, 4rem);
 }
 
 
@@ -24,8 +24,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     margin: 40px auto;
-    color: #2C3E50;
-    font-weight: bold;
+    color: black;
     margin-top: 300px;
 }
 
@@ -47,15 +46,14 @@
     margin-bottom: 100px;
 }
 
-.tez p{
-}
-
-
 .recadosTema {
     font-size: clamp(2rem, 2vw, 3rem);
-    color: #2C3E50;
+    color: black;
 }
 
+.textAgradecimentoP{
+    font-size: clamp(0.5rem, 1.2vw, 3rem);
+}
 
 .divAgradecimento {
     display: flex;
